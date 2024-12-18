@@ -9,7 +9,7 @@ load_dotenv(verbose=True)
 def save_in_sql_producer(data, key):
     try:
         producer_send_message(
-            topic=os.environ["SAVE_IN_SQL_TOPIC"],
+            topic=os.environ["SAVE_IN_MONGO_TOPIC"],
             value=data,
             key=key.encode("utf-8")
         )
