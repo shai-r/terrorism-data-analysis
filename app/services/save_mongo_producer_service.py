@@ -6,7 +6,7 @@ from app.settings.kafka_settings.producer import producer_send_message
 load_dotenv(verbose=True)
 
 
-def save_in_sql_producer(data, key):
+def save_in_mongo_producer(data, key):
     try:
         producer_send_message(
             topic=os.environ["SAVE_IN_MONGO_TOPIC"],

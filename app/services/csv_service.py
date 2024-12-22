@@ -1,7 +1,7 @@
 import csv
 import itertools
 
-def read_data_from_csv(path: str, batch_size: int = 100):
+def read_data_from_csv(path: str, batch_size: int = 250):
     with open(path, 'r', encoding='iso-8859-1') as file:
         csv_reader = csv.DictReader(file)
         batch = iter(csv_reader)
