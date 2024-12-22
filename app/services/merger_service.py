@@ -6,8 +6,8 @@ from typing import List
 current_directory = os.getcwd()
 
 sources_directory = os.path.join(current_directory,  'sources')
-file_1 = os.path.join(sources_directory, 'RAND_Database_of_Worldwide_Terrorism_Incidents - 5000 rows.csv')
-file_2 = os.path.join(sources_directory, 'globalterrorismdb_0718dist-1000 rows.csv')
+file_1 = os.path.join(sources_directory, 'RAND_Database_of_Worldwide_Terrorism_Incidents.csv')
+file_2 = os.path.join(sources_directory, 'globalterrorismdb_0718dist.csv')
 
 
 def clean_data(df):
@@ -49,7 +49,7 @@ def merger(file1: str, file2: str) -> List[dict]:
     return list(merged_df.to_dict(orient='records'))
 
 
-def send_data_in_batches(batch_size: int = 250):
+def send_data_in_batches(batch_size: int = 200):
     batch = iter(merger(file_1, file_2))
     while True:
         batch_data = list(itertools.islice(batch, batch_size))
